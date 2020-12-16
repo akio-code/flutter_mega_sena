@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mega_sena/mega_sena.dart';
+import 'package:flutter_mega_sena/mega_sena_app.dart';
 
 void main() {
   runApp(MyApp());

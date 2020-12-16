@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 
+@Deprecated('use MegaSenaConstants instead')
 class LuckyNumberConstants {
   static const int MIN_LUCKY_NUMBER = 1;
   static const int MAX_LUCKY_NUMBER = 60;
