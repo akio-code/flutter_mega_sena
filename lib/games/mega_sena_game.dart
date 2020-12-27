@@ -33,24 +33,19 @@ class _GamePrice extends StatelessWidget {
 class MegaSenaGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ChangeNotifierProvider(
-        create: (BuildContext context) => MegaSenaGameNotifier(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        MegaSenaBoardNumbers(),
+        SizedBox(height: 10.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            MegaSenaBoardNumbers(),
-            SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _GamePrice(),
-                MegaSenaControls(),
-              ],
-            ),
+            _GamePrice(),
+            MegaSenaControls(),
           ],
         ),
-      ),
+      ],
     );
   }
 }

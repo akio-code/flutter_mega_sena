@@ -1,7 +1,7 @@
 class MegaSenaConstants {
   static const int BOARD_NUMBERS = 60;
   static const int BOARD_NUMBERS_ROW = 10;
-  static const int MIN_LUCKY_NUMBERS = 1;
+  static const int MIN_LUCKY_NUMBERS = 6;
   static const int MAX_LUCKY_NUMBERS = 15;
 
   static const double PRICE_6_NUMBERS = 4.50;
