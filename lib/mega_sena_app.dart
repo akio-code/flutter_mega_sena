@@ -22,7 +22,6 @@ class MegaSenaApp extends StatelessWidget {
               ),
             ],
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 MegaSenaGame(),
                 MegaSenaSavedGames(),

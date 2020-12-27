@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mega_sena/games/mega_sena_saved_games_notifier.dart';
+import 'package:flutter_mega_sena/shared/mega_sena_number.dart';
 import 'package:provider/provider.dart';
 
 class _SavedGameLuckyNumbers extends StatelessWidget {
@@ -16,17 +17,8 @@ class _SavedGameLuckyNumbers extends StatelessWidget {
       itemCount: luckyNumbers.length,
       itemBuilder: (BuildContext context, int index) {
         return Container(
-          width: circleSize,
-          height: circleSize,
-          decoration: BoxDecoration(
-            color: Colors.black12,
-            shape: BoxShape.circle,
-          ),
-          child: Center(
-            child: Text(
-              luckyNumbers[index].toString().padLeft(2, '0'),
-            ),
-          ),
+          height: 25.0,
+          child: MegaSenaBoardNumber(gameNumber: luckyNumbers[index]),
         );
       },
       separatorBuilder: (BuildContext context, int index) {
@@ -89,15 +81,23 @@ class MegaSenaSavedGames extends StatelessWidget {
             ),
             ListView.builder(
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               itemCount: notifier.savedGames.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   height: 50.0,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: _SavedGameLuckyNumbers(
-                          notifier.savedGames[index].luckyNumbers,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 15.0,
+                          ),
+                          child: _SavedGameLuckyNumbers(
+                            notifier.savedGames[index].luckyNumbers,
+                          ),
                         ),
                       ),
                       Container(

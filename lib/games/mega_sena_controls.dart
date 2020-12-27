@@ -4,32 +4,8 @@ import 'package:flutter_mega_sena/constants/mega_sena_constants.dart';
 import 'package:flutter_mega_sena/constants/mega_sena_models.dart';
 import 'package:flutter_mega_sena/games/mega_sena_game_notifier.dart';
 import 'package:flutter_mega_sena/games/mega_sena_saved_games_notifier.dart';
+import 'package:flutter_mega_sena/shared/mega_sena_control.dart';
 import 'package:provider/provider.dart';
-
-class _MegaSenaControl extends StatelessWidget {
-  final IconData icon;
-  final Function action;
-
-  _MegaSenaControl({
-    @required this.icon,
-    @required this.action,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Ink(
-      decoration: const ShapeDecoration(
-        color: Colors.grey,
-        shape: CircleBorder(),
-      ),
-      child: IconButton(
-        icon: Icon(icon),
-        color: Colors.black,
-        onPressed: action,
-      ),
-    );
-  }
-}
 
 class MegaSenaControls extends StatelessWidget {
   @override
@@ -49,17 +25,19 @@ class MegaSenaControls extends StatelessWidget {
 
         return Row(
           children: [
-            _MegaSenaControl(
+            MegaSenaControl(
               icon: Icons.add,
               action: enableAddNumber ? notifier.generateLuckyNumber : null,
             ),
             SizedBox(width: 5.0),
-            _MegaSenaControl(
+            MegaSenaControl(
               icon: Icons.clear,
-              action: notifier.clearLuckyNumbers,
+              action: notifier.luckyNumbers.length > 0
+                  ? notifier.clearLuckyNumbers
+                  : null,
             ),
             SizedBox(width: 5.0),
-            _MegaSenaControl(
+            MegaSenaControl(
               icon: Icons.save_alt,
               action: enableSaveGame
                   ? () {

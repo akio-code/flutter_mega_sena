@@ -7,7 +7,7 @@ class MegaSenaSavedGamesNotifier extends ChangeNotifier {
   List<MegaSenaSavedGameModel> get savedGames => _savedGames;
 
   void saveGame(MegaSenaSavedGameModel game) {
-    print('${game.price}');
+    game.luckyNumbers.sort();
     _savedGames.add(game);
     notifyListeners();
   }

@@ -4,15 +4,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_mega_sena/boards/mega_sena_board.dart';
 import 'package:flutter_mega_sena/games/mega_sena_controls.dart';
 import 'package:flutter_mega_sena/games/mega_sena_game_notifier.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_mega_sena/utils/currency_formatter.dart';
 import 'package:provider/provider.dart';
 
 class _GamePrice extends StatelessWidget {
-  final numberFormat = NumberFormat.currency(
-    locale: 'pt_BR',
-    symbol: 'R\$',
-  );
-
   @override
   Widget build(BuildContext context) {
     return Consumer(
@@ -23,7 +18,7 @@ class _GamePrice extends StatelessWidget {
       ) {
         String gamePrice = notifier.gamePrice == 0
             ? '-'
-            : numberFormat.format(notifier.gamePrice);
+            : CurrencyFormatter.convert(notifier.gamePrice);
         return Text('valor: $gamePrice');
       },
     );
