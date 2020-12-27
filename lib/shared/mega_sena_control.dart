@@ -9,14 +9,14 @@ class MegaSenaControl extends StatelessWidget {
   MegaSenaControl({
     @required this.icon,
     @required this.action,
-    this.color = Colors.grey,
+    this.color = Colors.transparent,
   });
 
   @override
   Widget build(BuildContext context) {
     return Ink(
       decoration: const ShapeDecoration(
-        color: Colors.grey,
+        color: Colors.transparent,
         shape: CircleBorder(),
       ),
       child: IconButton(

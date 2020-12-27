@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_mega_sena/games/mega_sena_saved_games_notifier.dart';
+import 'package:flutter_mega_sena/shared/mega_sena_control.dart';
 import 'package:flutter_mega_sena/shared/mega_sena_number.dart';
 import 'package:provider/provider.dart';
 
@@ -30,31 +31,6 @@ class _SavedGameLuckyNumbers extends StatelessWidget {
   }
 }
 
-class _SavedGameControl extends StatelessWidget {
-  final IconData icon;
-  final Function action;
-
-  _SavedGameControl({
-    @required this.icon,
-    @required this.action,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Ink(
-      decoration: const ShapeDecoration(
-        color: Colors.grey,
-        shape: CircleBorder(),
-      ),
-      child: IconButton(
-        icon: Icon(icon),
-        color: Colors.black,
-        onPressed: action,
-      ),
-    );
-  }
-}
-
 class MegaSenaSavedGames extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -68,15 +44,11 @@ class MegaSenaSavedGames extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.centerRight,
-              child: Ink(
-                decoration: const ShapeDecoration(
-                  color: Colors.grey,
-                  shape: CircleBorder(),
-                ),
-                child: IconButton(
-                  icon: Icon(Icons.autorenew),
-                  onPressed: notifier.clearSavedGames,
-                ),
+              child: MegaSenaControl(
+                icon: Icons.autorenew,
+                action: notifier.savedGames.length > 0
+                    ? notifier.clearSavedGames
+                    : null,
               ),
             ),
             ListView.builder(
@@ -101,7 +73,7 @@ class MegaSenaSavedGames extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        child: _SavedGameControl(
+                        child: MegaSenaControl(
                           icon: Icons.clear,
                           action: () => notifier.removeSavedGame(index),
                         ),

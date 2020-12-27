@@ -45,7 +45,7 @@ class MegaSenaBoardNumbers extends StatelessWidget {
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: MegaSenaConstants.BOARD_NUMBERS_ROW,
-            childAspectRatio: 1.35,
+            childAspectRatio: 1.25,
           ),
           itemCount: MegaSenaConstants.BOARD_NUMBERS,
           itemBuilder: (BuildContext context, int index) {
@@ -55,7 +55,10 @@ class MegaSenaBoardNumbers extends StatelessWidget {
                   ? () => notifier.removeLuckyNumber(gameNumber)
                   : () => notifier.addLuckyNumber(gameNumber),
               child: Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5.0,
+                  horizontal: 2.5,
+                ),
                 child: _MegaSenaBoardNumber(
                   gameNumber: gameNumber,
                   luckyNumber: notifier.luckyNumbers.contains(gameNumber),
