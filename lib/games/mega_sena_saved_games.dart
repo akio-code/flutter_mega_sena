@@ -45,7 +45,7 @@ class MegaSenaSavedGames extends StatelessWidget {
             Container(
               alignment: Alignment.centerRight,
               child: MegaSenaControl(
-                icon: Icons.autorenew,
+                icon: Icons.refresh,
                 action: notifier.savedGames.length > 0
                     ? notifier.clearSavedGames
                     : null,

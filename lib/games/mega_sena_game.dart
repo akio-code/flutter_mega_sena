@@ -19,7 +19,7 @@ class _GamePrice extends StatelessWidget {
         String gamePrice = notifier.gamePrice == 0
             ? '-'
             : CurrencyFormatter.convert(notifier.gamePrice);
-        return Text('valor: $gamePrice');
+        return Text('$gamePrice');
       },
     );
   }
@@ -31,6 +31,7 @@ class MegaSenaGame extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
+        SizedBox(height: 10.0),
         MegaSenaBoardNumbers(),
         SizedBox(height: 10.0),
         Row(

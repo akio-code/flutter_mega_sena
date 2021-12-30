@@ -10,8 +10,19 @@ class MegaSenaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Icon(
+          Icons.verified,
+          color: Colors.white,
+        ),
+      ),
+      backgroundColor: Color.fromRGBO(255, 253, 245, 1.0),
       body: SafeArea(
         child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            horizontal: 16.0,
+          ),
           child: MultiProvider(
             providers: [
               ChangeNotifierProvider(
